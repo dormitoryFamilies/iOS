@@ -25,10 +25,10 @@ class TabbarViewController: UITabBarController {
         bulletinBoardViewController.title = "게시판"
         myPageViewController.title = "마이페이지"
         
-        homeViewController.tabBarItem.image = UIImage.init(systemName: "house")
-        mealViewController.tabBarItem.image = UIImage.init(systemName: "magnifyingglass")
-        bulletinBoardViewController.tabBarItem.image = UIImage.init(systemName: "book")
-        myPageViewController.tabBarItem.image = UIImage.init(systemName: "book")
+        homeViewController.tabBarItem.image = UIImage.init(systemName: "house.fill")
+        mealViewController.tabBarItem.image = UIImage.init(systemName: "fork.knife")
+        bulletinBoardViewController.tabBarItem.image = UIImage.init(systemName: "list.bullet.rectangle.portrait.fill")
+        myPageViewController.tabBarItem.image = UIImage.init(systemName: "person.crop.circle.fill")
     
         let navigationHome = UINavigationController(rootViewController: homeViewController)
         let navigationMeal = UINavigationController(rootViewController: mealViewController)

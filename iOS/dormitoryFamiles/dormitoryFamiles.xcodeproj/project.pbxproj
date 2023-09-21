@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		D8A442CF7C2F44EF445506E6 /* Pods_dormitoryFamiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A553088DAE7950552F1C20C /* Pods_dormitoryFamiles.framework */; };
+		DBCBAF7A2ABC6F70001F72B9 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCBAF792ABC6F70001F72B9 /* MealViewController.swift */; };
+		DBCBAF7C2ABC6FBA001F72B9 /* BulletinBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCBAF7B2ABC6FBA001F72B9 /* BulletinBoardViewController.swift */; };
+		DBCBAF7E2ABC6FD1001F72B9 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCBAF7D2ABC6FD1001F72B9 /* MyPageViewController.swift */; };
 		DBF66B992ABAE7910093DF8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF66B982ABAE7910093DF8C /* AppDelegate.swift */; };
 		DBF66B9B2ABAE7910093DF8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF66B9A2ABAE7910093DF8C /* SceneDelegate.swift */; };
-		DBF66B9D2ABAE7910093DF8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF66B9C2ABAE7910093DF8C /* ViewController.swift */; };
+		DBF66B9D2ABAE7910093DF8C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF66B9C2ABAE7910093DF8C /* HomeViewController.swift */; };
 		DBF66BA02ABAE7910093DF8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF66B9E2ABAE7910093DF8C /* Main.storyboard */; };
 		DBF66BA22ABAE7920093DF8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBF66BA12ABAE7920093DF8C /* Assets.xcassets */; };
 		DBF66BA52ABAE7920093DF8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF66BA32ABAE7920093DF8C /* LaunchScreen.storyboard */; };
@@ -20,10 +23,13 @@
 		104867CE4F5D8AED5F7019D5 /* Pods-dormitoryFamiles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dormitoryFamiles.debug.xcconfig"; path = "Target Support Files/Pods-dormitoryFamiles/Pods-dormitoryFamiles.debug.xcconfig"; sourceTree = "<group>"; };
 		24F61B00B32EA7AD3AA3C4CE /* Pods-dormitoryFamiles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dormitoryFamiles.release.xcconfig"; path = "Target Support Files/Pods-dormitoryFamiles/Pods-dormitoryFamiles.release.xcconfig"; sourceTree = "<group>"; };
 		7A553088DAE7950552F1C20C /* Pods_dormitoryFamiles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dormitoryFamiles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBCBAF792ABC6F70001F72B9 /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
+		DBCBAF7B2ABC6FBA001F72B9 /* BulletinBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardViewController.swift; sourceTree = "<group>"; };
+		DBCBAF7D2ABC6FD1001F72B9 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		DBF66B952ABAE7910093DF8C /* dormitoryFamiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dormitoryFamiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBF66B982ABAE7910093DF8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBF66B9A2ABAE7910093DF8C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DBF66B9C2ABAE7910093DF8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DBF66B9C2ABAE7910093DF8C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DBF66B9F2ABAE7910093DF8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DBF66BA12ABAE7920093DF8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBF66BA42ABAE7920093DF8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,7 +54,6 @@
 				104867CE4F5D8AED5F7019D5 /* Pods-dormitoryFamiles.debug.xcconfig */,
 				24F61B00B32EA7AD3AA3C4CE /* Pods-dormitoryFamiles.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,7 +88,10 @@
 			children = (
 				DBF66B982ABAE7910093DF8C /* AppDelegate.swift */,
 				DBF66B9A2ABAE7910093DF8C /* SceneDelegate.swift */,
-				DBF66B9C2ABAE7910093DF8C /* ViewController.swift */,
+				DBF66B9C2ABAE7910093DF8C /* HomeViewController.swift */,
+				DBCBAF792ABC6F70001F72B9 /* MealViewController.swift */,
+				DBCBAF7B2ABC6FBA001F72B9 /* BulletinBoardViewController.swift */,
+				DBCBAF7D2ABC6FD1001F72B9 /* MyPageViewController.swift */,
 				DBF66B9E2ABAE7910093DF8C /* Main.storyboard */,
 				DBF66BA12ABAE7920093DF8C /* Assets.xcassets */,
 				DBF66BA32ABAE7920093DF8C /* LaunchScreen.storyboard */,
@@ -189,7 +197,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBF66B9D2ABAE7910093DF8C /* ViewController.swift in Sources */,
+				DBF66B9D2ABAE7910093DF8C /* HomeViewController.swift in Sources */,
+				DBCBAF7E2ABC6FD1001F72B9 /* MyPageViewController.swift in Sources */,
+				DBCBAF7A2ABC6F70001F72B9 /* MealViewController.swift in Sources */,
+				DBCBAF7C2ABC6FBA001F72B9 /* BulletinBoardViewController.swift in Sources */,
 				DBF66B992ABAE7910093DF8C /* AppDelegate.swift in Sources */,
 				DBF66B9B2ABAE7910093DF8C /* SceneDelegate.swift in Sources */,
 			);

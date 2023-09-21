@@ -15,7 +15,7 @@ enum Time: String {
 }
 
 class MealViewController: UIViewController {
-
+    
     private lazy var dateText: UILabel = {
         let label = UILabel()
         label.text = "오늘의 긱식 (\(formattedCurrentDate(year: false)))"
@@ -67,14 +67,14 @@ class MealViewController: UIViewController {
         return st
     }()
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         setupConstraints()
-       
+        
     }
-
+    
     private func formattedCurrentDate(year: Bool) -> String {
         let currentDate = Date()
         let dateFormatter = DateFormatter()
@@ -88,7 +88,7 @@ class MealViewController: UIViewController {
     }
     
     @objc private func schoolMealButtonTapped() {
-        
+        present(SchoolWebViewController(), animated: true)
     }
     
     private func setupConstraints() {
@@ -137,7 +137,7 @@ class MealViewController: UIViewController {
             }
         }
     }
-
+    
     
     private func doCrawling(time: Time, completion: @escaping (String?) -> Void) {
         Task {
@@ -157,7 +157,7 @@ class MealViewController: UIViewController {
             let html = try await String(contentsOf: url)
             let document = try SwiftSoup.parse(html)
             let trElement = try document.select("tr#\(formattedCurrentDate(year: true))").first()
-
+            
             if let trElement = trElement {
                 let morningTdElements = try trElement.select("td.\(time.rawValue)")
                 for morningTd in morningTdElements {
@@ -171,8 +171,8 @@ class MealViewController: UIViewController {
         }
         return ""
     }
-
     
     
-
+    
+    
 }

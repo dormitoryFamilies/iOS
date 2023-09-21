@@ -22,6 +22,15 @@ class MealViewController: UIViewController {
         return label
     }()
     
+    private let schoolMealButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("학식 보기", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.backgroundColor = UIColor.systemPink
+        button.titleLabel?.font = UIFont(name: "SFProDisplay-Semibold", size: 18)
+        button.addTarget(self, action: #selector(schoolMealButtonTapped), for: .touchUpInside)
+        return button
+    }()
     
     private lazy var todayMorning: UILabel = {
         let label = UILabel()
@@ -78,8 +87,12 @@ class MealViewController: UIViewController {
         
     }
     
+    @objc private func schoolMealButtonTapped() {
+        
+    }
+    
     private func setupConstraints() {
-        [dateText, menuStackView].forEach {
+        [dateText, menuStackView, schoolMealButton].forEach {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -87,13 +100,18 @@ class MealViewController: UIViewController {
         NSLayoutConstraint.activate([
             dateText.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             dateText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            dateText.widthAnchor.constraint(equalToConstant: 500),
+            dateText.widthAnchor.constraint(equalToConstant: 200),
             dateText.heightAnchor.constraint(equalToConstant: 50),
+            
+            schoolMealButton.topAnchor.constraint(equalTo: dateText.topAnchor),
+            schoolMealButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
+            schoolMealButton.widthAnchor.constraint(equalToConstant: 100),
+            schoolMealButton.heightAnchor.constraint(equalToConstant: 50),
             
             menuStackView.topAnchor.constraint(equalTo: dateText.bottomAnchor, constant: 15),
             menuStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             menuStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            menuStackView.heightAnchor.constraint(equalToConstant: 500),
+            menuStackView.heightAnchor.constraint(equalToConstant: 300),
         ])
     }
     

@@ -7,6 +7,12 @@
 
 import UIKit
 
+enum Time: String {
+    case morning = "morning"
+    case lunch = "lunch"
+    case evening = "evening"
+}
+
 class MealViewController: UIViewController {
 
     private lazy var dateText: UILabel = {
@@ -47,6 +53,7 @@ class MealViewController: UIViewController {
             dateText.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
+    
     
 
 }

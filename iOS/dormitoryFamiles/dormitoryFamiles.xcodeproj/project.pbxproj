@@ -11,6 +11,7 @@
 		DBCBAF7A2ABC6F70001F72B9 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCBAF792ABC6F70001F72B9 /* MealViewController.swift */; };
 		DBCBAF7C2ABC6FBA001F72B9 /* BulletinBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCBAF7B2ABC6FBA001F72B9 /* BulletinBoardViewController.swift */; };
 		DBCBAF7E2ABC6FD1001F72B9 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCBAF7D2ABC6FD1001F72B9 /* MyPageViewController.swift */; };
+		DBCBAF802ABC71B5001F72B9 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCBAF7F2ABC71B5001F72B9 /* TabbarViewController.swift */; };
 		DBF66B992ABAE7910093DF8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF66B982ABAE7910093DF8C /* AppDelegate.swift */; };
 		DBF66B9B2ABAE7910093DF8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF66B9A2ABAE7910093DF8C /* SceneDelegate.swift */; };
 		DBF66B9D2ABAE7910093DF8C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF66B9C2ABAE7910093DF8C /* HomeViewController.swift */; };
@@ -26,6 +27,7 @@
 		DBCBAF792ABC6F70001F72B9 /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
 		DBCBAF7B2ABC6FBA001F72B9 /* BulletinBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardViewController.swift; sourceTree = "<group>"; };
 		DBCBAF7D2ABC6FD1001F72B9 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		DBCBAF7F2ABC71B5001F72B9 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		DBF66B952ABAE7910093DF8C /* dormitoryFamiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dormitoryFamiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBF66B982ABAE7910093DF8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBF66B9A2ABAE7910093DF8C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			children = (
 				DBF66B982ABAE7910093DF8C /* AppDelegate.swift */,
 				DBF66B9A2ABAE7910093DF8C /* SceneDelegate.swift */,
+				DBCBAF7F2ABC71B5001F72B9 /* TabbarViewController.swift */,
 				DBF66B9C2ABAE7910093DF8C /* HomeViewController.swift */,
 				DBCBAF792ABC6F70001F72B9 /* MealViewController.swift */,
 				DBCBAF7B2ABC6FBA001F72B9 /* BulletinBoardViewController.swift */,
@@ -199,6 +202,7 @@
 			files = (
 				DBF66B9D2ABAE7910093DF8C /* HomeViewController.swift in Sources */,
 				DBCBAF7E2ABC6FD1001F72B9 /* MyPageViewController.swift in Sources */,
+				DBCBAF802ABC71B5001F72B9 /* TabbarViewController.swift in Sources */,
 				DBCBAF7A2ABC6F70001F72B9 /* MealViewController.swift in Sources */,
 				DBCBAF7C2ABC6FBA001F72B9 /* BulletinBoardViewController.swift in Sources */,
 				DBF66B992ABAE7910093DF8C /* AppDelegate.swift in Sources */,

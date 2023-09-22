@@ -18,7 +18,11 @@ class MealViewController: UIViewController {
     
     private lazy var dateText: UILabel = {
         let label = UILabel()
-        label.text = "오늘의 긱식 (\(formattedCurrentDate(year: false)))"
+        let dateFormatter = DateFormatter() // Date 포맷 객체 선언
+                dateFormatter.locale = Locale(identifier: "ko")
+        dateFormatter.dateFormat = "yyyy.MM.dd E요일"
+        let date_string = dateFormatter.string(from: Date())
+        label.text = "오늘의 긱식 (\(date_string))"
         return label
     }()
     
@@ -100,7 +104,7 @@ class MealViewController: UIViewController {
         NSLayoutConstraint.activate([
             dateText.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             dateText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            dateText.widthAnchor.constraint(equalToConstant: 200),
+            dateText.widthAnchor.constraint(equalToConstant: 250),
             dateText.heightAnchor.constraint(equalToConstant: 50),
             
             schoolMealButton.topAnchor.constraint(equalTo: dateText.topAnchor),
@@ -111,7 +115,7 @@ class MealViewController: UIViewController {
             menuStackView.topAnchor.constraint(equalTo: dateText.bottomAnchor, constant: 15),
             menuStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             menuStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            menuStackView.heightAnchor.constraint(equalToConstant: 300),
+            menuStackView.heightAnchor.constraint(equalToConstant: 200),
         ])
     }
     

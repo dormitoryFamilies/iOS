@@ -14,12 +14,17 @@ enum Time: String {
     case evening = "evening"
 }
 
+enum ChangedDate: String {
+    case past = "past"
+    case future = "future"
+}
+
 class MealViewController: UIViewController {
     
     private lazy var dateText: UILabel = {
         let label = UILabel()
         let dateFormatter = DateFormatter() // Date 포맷 객체 선언
-                dateFormatter.locale = Locale(identifier: "ko")
+        dateFormatter.locale = Locale(identifier: "ko")
         dateFormatter.dateFormat = "yyyy.MM.dd E요일"
         let date_string = dateFormatter.string(from: Date())
         label.text = "오늘의 긱식 (\(date_string))"
@@ -81,13 +86,35 @@ class MealViewController: UIViewController {
         return st
     }()
     
-    private lazy var changeDateView: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .clear
-        button.addTarget(self, action: #selector(changeDate), for: .touchDragInside)
+    private lazy var changeDateView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(leftSwipe))
+        leftSwipe.direction = .left
+        let rightSwpe = UISwipeGestureRecognizer(target: self, action: #selector(rightSwipe))
+        rightSwpe.direction = .right
         
-        return button
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwpe)
+        return view
     }()
+    
+    @objc private func leftSwipe() {
+        updateDate(time: .future)
+    }
+
+    @objc private func rightSwipe() {
+        updateDate(time: .past)
+    }
+    
+    
+    private func updateDate(time: ChangedDate) {
+        if time == .past {
+            print("과거로!")
+        }else {
+            print("미래로 !")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,11 +139,7 @@ class MealViewController: UIViewController {
     @objc private func schoolMealButtonTapped() {
         present(SchoolWebViewController(), animated: true)
     }
-    
-    @objc private func changeDate() {
-        print("dd")
-    }
-    
+
     private func setupConstraints() {
         [topUIStackView, changeDateView, schoolMealButton].forEach {
             view.addSubview($0)
@@ -165,6 +188,7 @@ class MealViewController: UIViewController {
         }
     }
     
+                                                 
     
     private func doCrawling(time: Time, completion: @escaping (String?) -> Void) {
         Task {
@@ -198,8 +222,4 @@ class MealViewController: UIViewController {
         }
         return ""
     }
-    
-    
-    
-    
 }

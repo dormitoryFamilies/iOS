@@ -32,6 +32,8 @@ class MealViewController: UIViewController {
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = UIColor.systemPink
         button.titleLabel?.font = UIFont(name: "SFProDisplay-Semibold", size: 18)
+        button.layer.cornerRadius = 10
+        button.layer.masksToBounds = true
         button.addTarget(self, action: #selector(schoolMealButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -71,11 +73,27 @@ class MealViewController: UIViewController {
         return st
     }()
     
+    private lazy var topUIStackView: UIStackView = {
+        let st = UIStackView()
+        st.addArrangedSubview(dateText)
+        st.addArrangedSubview(menuStackView)
+        st.axis = .vertical
+        return st
+    }()
+    
+    private lazy var changeDateView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(changeDate), for: .touchDragInside)
+        
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         setupConstraints()
+        dateText.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
     }
     
@@ -95,28 +113,35 @@ class MealViewController: UIViewController {
         present(SchoolWebViewController(), animated: true)
     }
     
+    @objc private func changeDate() {
+        print("dd")
+    }
+    
     private func setupConstraints() {
-        [dateText, menuStackView, schoolMealButton].forEach {
+        [topUIStackView, changeDateView, schoolMealButton].forEach {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
         NSLayoutConstraint.activate([
-            dateText.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            dateText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            dateText.widthAnchor.constraint(equalToConstant: 250),
-            dateText.heightAnchor.constraint(equalToConstant: 50),
+            topUIStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            topUIStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            topUIStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            topUIStackView.heightAnchor.constraint(equalToConstant: 250),
             
-            schoolMealButton.topAnchor.constraint(equalTo: dateText.topAnchor),
+            schoolMealButton.topAnchor.constraint(equalTo: topUIStackView.topAnchor),
             schoolMealButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
-            schoolMealButton.widthAnchor.constraint(equalToConstant: 100),
+            schoolMealButton.widthAnchor.constraint(equalToConstant: 80),
             schoolMealButton.heightAnchor.constraint(equalToConstant: 50),
             
-            menuStackView.topAnchor.constraint(equalTo: dateText.bottomAnchor, constant: 15),
-            menuStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            menuStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            menuStackView.heightAnchor.constraint(equalToConstant: 200),
+            
+           
+//            changeDateView.topAnchor.constraint(equalTo: self.view.topAnchor),
+//            changeDateView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+//            changeDateView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+//            changeDateView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant:-50)
         ])
+        dateText.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
     private func spacingToNewline(time: Time, completion: @escaping (String) -> Void) {

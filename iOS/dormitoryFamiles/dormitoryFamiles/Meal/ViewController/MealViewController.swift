@@ -134,12 +134,10 @@ class MealViewController: UIViewController {
             schoolMealButton.widthAnchor.constraint(equalToConstant: 80),
             schoolMealButton.heightAnchor.constraint(equalToConstant: 50),
             
-            
-           
-//            changeDateView.topAnchor.constraint(equalTo: self.view.topAnchor),
-//            changeDateView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-//            changeDateView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-//            changeDateView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant:-50)
+            changeDateView.topAnchor.constraint(equalTo: topUIStackView.topAnchor),
+            changeDateView.leadingAnchor.constraint(equalTo: topUIStackView.leadingAnchor),
+            changeDateView.trailingAnchor.constraint(equalTo: topUIStackView.trailingAnchor),
+            changeDateView.bottomAnchor.constraint(equalTo: topUIStackView.bottomAnchor)
         ])
         dateText.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }

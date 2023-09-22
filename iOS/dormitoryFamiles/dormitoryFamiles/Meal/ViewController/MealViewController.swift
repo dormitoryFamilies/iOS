@@ -21,13 +21,18 @@ enum ChangedDate: String {
 
 class MealViewController: UIViewController {
     
-    private lazy var dateText: UILabel = {
-        let label = UILabel()
+    private var dateString: String = {
         let dateFormatter = DateFormatter() // Date 포맷 객체 선언
         dateFormatter.locale = Locale(identifier: "ko")
         dateFormatter.dateFormat = "yyyy.MM.dd E요일"
-        let date_string = dateFormatter.string(from: Date())
-        label.text = "오늘의 긱식 (\(date_string))"
+        let dateString = dateFormatter.string(from: Date())
+        return dateString
+    }()
+    
+    private lazy var dateLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "오늘의 긱식 (\(dateString))"
         return label
     }()
     
@@ -80,7 +85,7 @@ class MealViewController: UIViewController {
     
     private lazy var topUIStackView: UIStackView = {
         let st = UIStackView()
-        st.addArrangedSubview(dateText)
+        st.addArrangedSubview(dateLabel)
         st.addArrangedSubview(menuStackView)
         st.axis = .vertical
         return st
@@ -120,7 +125,7 @@ class MealViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         setupConstraints()
-        dateText.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        dateLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
     }
     
@@ -162,7 +167,7 @@ class MealViewController: UIViewController {
             changeDateView.trailingAnchor.constraint(equalTo: topUIStackView.trailingAnchor),
             changeDateView.bottomAnchor.constraint(equalTo: topUIStackView.bottomAnchor)
         ])
-        dateText.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        dateLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
     private func spacingToNewline(time: Time, completion: @escaping (String) -> Void) {

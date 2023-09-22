@@ -19,6 +19,7 @@
 		DBF66BA02ABAE7910093DF8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF66B9E2ABAE7910093DF8C /* Main.storyboard */; };
 		DBF66BA22ABAE7920093DF8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBF66BA12ABAE7920093DF8C /* Assets.xcassets */; };
 		DBF66BA52ABAE7920093DF8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF66BA32ABAE7920093DF8C /* LaunchScreen.storyboard */; };
+		DBFC45992ABD542C00384643 /* MealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFC45982ABD542C00384643 /* MealView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		DBF66BA12ABAE7920093DF8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBF66BA42ABAE7920093DF8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBF66BA62ABAE7920093DF8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBFC45982ABD542C00384643 /* MealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,114 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DBE0FF3B2ABD675D006B1E16 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DBE0FF3F2ABD678A006B1E16 /* ViewController */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DBE0FF3C2ABD6766006B1E16 /* Meal */ = {
+			isa = PBXGroup;
+			children = (
+				DBE0FF452ABD67FA006B1E16 /* SubView */,
+				DBE0FF442ABD67E6006B1E16 /* View */,
+				DBE0FF402ABD679D006B1E16 /* ViewController */,
+			);
+			path = Meal;
+			sourceTree = "<group>";
+		};
+		DBE0FF3D2ABD6771006B1E16 /* BulletinBoard */ = {
+			isa = PBXGroup;
+			children = (
+				DBE0FF412ABD67A4006B1E16 /* ViewController */,
+			);
+			path = BulletinBoard;
+			sourceTree = "<group>";
+		};
+		DBE0FF3E2ABD677D006B1E16 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				DBE0FF422ABD67AB006B1E16 /* ViewController */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		DBE0FF3F2ABD678A006B1E16 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DBF66B9C2ABAE7910093DF8C /* HomeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DBE0FF402ABD679D006B1E16 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DBCBAF792ABC6F70001F72B9 /* MealViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DBE0FF412ABD67A4006B1E16 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DBCBAF7B2ABC6FBA001F72B9 /* BulletinBoardViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DBE0FF422ABD67AB006B1E16 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DBCBAF7D2ABC6FD1001F72B9 /* MyPageViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DBE0FF432ABD67C9006B1E16 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DBCBAF7F2ABC71B5001F72B9 /* TabbarViewController.swift */,
+				DBF66B982ABAE7910093DF8C /* AppDelegate.swift */,
+				DBF66B9A2ABAE7910093DF8C /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DBE0FF442ABD67E6006B1E16 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DBFC45982ABD542C00384643 /* MealView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DBE0FF452ABD67FA006B1E16 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				DBE0FF462ABD6801006B1E16 /* WebView */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		DBE0FF462ABD6801006B1E16 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				DBE0FF472ABD681A006B1E16 /* ViewController */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		DBE0FF472ABD681A006B1E16 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DBCBAF812ABC8136001F72B9 /* SchoolWebViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		DBF66B8C2ABAE7910093DF8C = {
 			isa = PBXGroup;
 			children = (
@@ -90,18 +200,15 @@
 		DBF66B972ABAE7910093DF8C /* dormitoryFamiles */ = {
 			isa = PBXGroup;
 			children = (
-				DBF66B982ABAE7910093DF8C /* AppDelegate.swift */,
-				DBF66B9A2ABAE7910093DF8C /* SceneDelegate.swift */,
-				DBCBAF7F2ABC71B5001F72B9 /* TabbarViewController.swift */,
-				DBF66B9C2ABAE7910093DF8C /* HomeViewController.swift */,
-				DBCBAF792ABC6F70001F72B9 /* MealViewController.swift */,
-				DBCBAF7B2ABC6FBA001F72B9 /* BulletinBoardViewController.swift */,
-				DBCBAF7D2ABC6FD1001F72B9 /* MyPageViewController.swift */,
+				DBE0FF432ABD67C9006B1E16 /* Application */,
+				DBE0FF3E2ABD677D006B1E16 /* MyPage */,
+				DBE0FF3D2ABD6771006B1E16 /* BulletinBoard */,
+				DBE0FF3C2ABD6766006B1E16 /* Meal */,
+				DBE0FF3B2ABD675D006B1E16 /* Home */,
 				DBF66B9E2ABAE7910093DF8C /* Main.storyboard */,
 				DBF66BA12ABAE7920093DF8C /* Assets.xcassets */,
 				DBF66BA32ABAE7920093DF8C /* LaunchScreen.storyboard */,
 				DBF66BA62ABAE7920093DF8C /* Info.plist */,
-				DBCBAF812ABC8136001F72B9 /* SchoolWebViewController.swift */,
 			);
 			path = dormitoryFamiles;
 			sourceTree = "<group>";
@@ -226,6 +333,7 @@
 				DBCBAF802ABC71B5001F72B9 /* TabbarViewController.swift in Sources */,
 				DBCBAF7A2ABC6F70001F72B9 /* MealViewController.swift in Sources */,
 				DBCBAF7C2ABC6FBA001F72B9 /* BulletinBoardViewController.swift in Sources */,
+				DBFC45992ABD542C00384643 /* MealView.swift in Sources */,
 				DBCBAF822ABC8136001F72B9 /* SchoolWebViewController.swift in Sources */,
 				DBF66B992ABAE7910093DF8C /* AppDelegate.swift in Sources */,
 				DBF66B9B2ABAE7910093DF8C /* SceneDelegate.swift in Sources */,

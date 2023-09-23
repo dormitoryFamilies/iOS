@@ -104,6 +104,13 @@ class MealViewController: UIViewController {
         return view
     }()
     
+    private let nothingMealLabel: UILabel = {
+        let label = UILabel()
+        label.text = "오늘은 식당을 운영하지 않습니다."
+        label.isHidden = true
+        return label
+    }()
+    
     @objc private func leftSwipe() {
         updateDate(time: .future)
     }
@@ -150,6 +157,8 @@ class MealViewController: UIViewController {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
+        changeDateView.addSubview(nothingMealLabel)
+        nothingMealLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             topUIStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
@@ -165,7 +174,10 @@ class MealViewController: UIViewController {
             changeDateView.topAnchor.constraint(equalTo: topUIStackView.topAnchor),
             changeDateView.leadingAnchor.constraint(equalTo: topUIStackView.leadingAnchor),
             changeDateView.trailingAnchor.constraint(equalTo: topUIStackView.trailingAnchor),
-            changeDateView.bottomAnchor.constraint(equalTo: topUIStackView.bottomAnchor)
+            changeDateView.bottomAnchor.constraint(equalTo: topUIStackView.bottomAnchor),
+            
+            nothingMealLabel.centerXAnchor.constraint(equalTo: self.changeDateView.centerXAnchor),
+            nothingMealLabel.centerYAnchor.constraint(equalTo: self.changeDateView.centerYAnchor)
         ])
         dateLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
@@ -220,7 +232,7 @@ class MealViewController: UIViewController {
                     return try morningTd.text()
                 }
             } else {
-                print("TR Element not found.")
+                nothingMealLabel.isHidden = false
             }
         } catch {
             print("Error: \(error)")

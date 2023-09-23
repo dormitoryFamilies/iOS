@@ -21,17 +21,19 @@ enum ChangedDate: String {
 
 class MealViewController: UIViewController {
     
-    private var dateString: String = {
+    private let calendar = Calendar.current
+    private var seletedDate = Date()
+    
+    private var selectedDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter() // Date 포맷 객체 선언
         dateFormatter.locale = Locale(identifier: "ko")
         dateFormatter.dateFormat = "yyyy.MM.dd E요일"
-        let dateString = dateFormatter.string(from: Date())
-        return dateString
+        return dateFormatter
     }()
     
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
-        
+        let dateString = selectedDateFormatter.string(from: Date())
         label.text = "오늘의 긱식 (\(dateString))"
         return label
     }()
@@ -106,7 +108,7 @@ class MealViewController: UIViewController {
     
     private let nothingMealLabel: UILabel = {
         let label = UILabel()
-        label.text = "오늘은 식당을 운영하지 않습니다."
+        label.text = "식당 휴일"
         label.isHidden = true
         return label
     }()
@@ -121,12 +123,27 @@ class MealViewController: UIViewController {
     
     
     private func updateDate(time: ChangedDate) {
+        var value: Int = 0
+        
         if time == .past {
-            print("과거로!")
-        }else {
-            print("미래로 !")
+            value = -1
+        } else {
+            value = 1
+        }
+        
+        if let date = calendar.date(byAdding: .day, value: value, to: seletedDate) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "ko")
+            dateFormatter.dateFormat = "yyyy.MM.dd E요일"
+            let formattedSelectedDate = dateFormatter.string(from: date)
+            
+            seletedDate = date
+            dateLabel.text = "오늘의 긱식 (\(formattedSelectedDate))"
+        } else {
+            print("날짜 계산 실패")
         }
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -168,8 +185,8 @@ class MealViewController: UIViewController {
             
             schoolMealButton.topAnchor.constraint(equalTo: topUIStackView.topAnchor),
             schoolMealButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
-            schoolMealButton.widthAnchor.constraint(equalToConstant: 80),
-            schoolMealButton.heightAnchor.constraint(equalToConstant: 50),
+            schoolMealButton.widthAnchor.constraint(equalToConstant: 70),
+            schoolMealButton.heightAnchor.constraint(equalToConstant: 40),
             
             changeDateView.topAnchor.constraint(equalTo: topUIStackView.topAnchor),
             changeDateView.leadingAnchor.constraint(equalTo: topUIStackView.leadingAnchor),

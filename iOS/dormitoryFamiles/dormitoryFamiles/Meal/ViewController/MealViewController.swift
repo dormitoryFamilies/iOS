@@ -250,7 +250,7 @@ class MealViewController: UIViewController {
     
     private func crawling(time: Time) async throws -> String {
         do {
-            let url = URL(string: "https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041")!
+            let url = URL(string: "https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&cur_day=\(formattedCurrentDate(year: true))")!
             let html = try await String(contentsOf: url)
             let document = try SwiftSoup.parse(html)
             let trElement = try document.select("tr#\(formattedCurrentDate(year: true))").first()

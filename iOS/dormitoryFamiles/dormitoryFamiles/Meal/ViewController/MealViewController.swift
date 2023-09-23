@@ -82,6 +82,7 @@ class MealViewController: UIViewController {
         st.addArrangedSubview(todayMorning)
         st.addArrangedSubview(todayLunch)
         st.addArrangedSubview(todayEvening)
+        st.alignment = .top
         return st
     }()
     

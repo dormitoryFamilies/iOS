@@ -25,7 +25,7 @@ class MealViewController: UIViewController {
     private var seletedDate = Date()
     
     private var selectedDateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter() // Date 포맷 객체 선언
+        let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko")
         dateFormatter.dateFormat = "yyyy.MM.dd E요일"
         return dateFormatter
@@ -108,10 +108,26 @@ class MealViewController: UIViewController {
     
     private let nothingMealLabel: UILabel = {
         let label = UILabel()
-        label.text = "식당 휴일"
+        label.text = "등록된 식단이 없습니다."
         label.isHidden = true
         return label
     }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .white
+        setupConstraints()
+    }
+    
+    private func formattedCurrentDate(year: Bool) -> String {
+        if year {
+            selectedDateFormatter.dateFormat = "YYYY-MM-dd"
+        }else {
+            selectedDateFormatter.dateFormat = "MM-dd"
+        }
+        return selectedDateFormatter.string(from: seletedDate)
+        
+    }
     
     @objc private func leftSwipe() {
         updateDate(time: .future)
@@ -139,31 +155,26 @@ class MealViewController: UIViewController {
             
             seletedDate = date
             dateLabel.text = "오늘의 긱식 (\(formattedSelectedDate))"
+            updateMealLabels()
         } else {
             print("날짜 계산 실패")
         }
     }
+    
+    private func updateMealLabels() {
+        spacingToNewline(time: .morning) { [self] result in
+                todayMorning.text = result
+            }
+            
+        spacingToNewline(time: .lunch) { [self] result in
+                todayLunch.text = result
+            }
+            
+        spacingToNewline(time: .evening) { [self] result in
+                todayEvening.text = result
+            }
+    }
 
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = .white
-        setupConstraints()
-        dateLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
-    }
-    
-    private func formattedCurrentDate(year: Bool) -> String {
-        let currentDate = Date()
-        let dateFormatter = DateFormatter()
-        if year {
-            dateFormatter.dateFormat = "YYYY-MM-dd"
-        }else {
-            dateFormatter.dateFormat = "MM-dd"
-        }
-        return dateFormatter.string(from: currentDate)
-        
-    }
     
     @objc private func schoolMealButtonTapped() {
         present(SchoolWebViewController(), animated: true)
@@ -182,6 +193,8 @@ class MealViewController: UIViewController {
             topUIStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             topUIStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             topUIStackView.heightAnchor.constraint(equalToConstant: 250),
+            
+            dateLabel.heightAnchor.constraint(equalToConstant: 30),
             
             schoolMealButton.topAnchor.constraint(equalTo: topUIStackView.topAnchor),
             schoolMealButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
@@ -222,7 +235,6 @@ class MealViewController: UIViewController {
         }
     }
     
-                                                 
     
     private func doCrawling(time: Time, completion: @escaping (String?) -> Void) {
         Task {
@@ -244,6 +256,7 @@ class MealViewController: UIViewController {
             let trElement = try document.select("tr#\(formattedCurrentDate(year: true))").first()
             
             if let trElement = trElement {
+                nothingMealLabel.isHidden = true
                 let morningTdElements = try trElement.select("td.\(time.rawValue)")
                 for morningTd in morningTdElements {
                     return try morningTd.text()
